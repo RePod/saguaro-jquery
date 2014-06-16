@@ -4,7 +4,7 @@ The purpose of this project is to create a set of files aimed at dynamically exp
 ##Getting Started
 Saguaro version 0.98.3b3 or newer is required to fully utilize these files.
 
-Updating is as simple as [downloading the archive](https://github.com/RePod/saguaro-jquery/archive/master.zip) and overwriting the **jquery** folder at the root of an installation.
+To update [download the archive](https://github.com/RePod/saguaro-jquery/archive/master.zip) and overwrite the installation's **jquery** folder with the new one. Alternatively update specific files as desired.
 
-##Libaries Used
-jQuery, jQuery UI, [jQuery Form Plugin](http://jquery.malsup.com/form/).
+##Libaries Included
+[jQuery Form Plugin](http://jquery.malsup.com/form/).

@@ -112,7 +112,7 @@ repod.suite_settings = {
 			},
 			popup: function(popup_data) {
 				var c = 0;
-				$("#settings_popup_window > #pop_content_area > :input").each(function(a,b) {
+				$("#settings_popup_window > #pop_content_area > :input").each(function() {
 					c++; // Original joke.
 					repod_jsuite_setCookie($(this).attr("id"),$(this).val(),7);
 				});
@@ -123,7 +123,7 @@ repod.suite_settings = {
 		reset: {
 			settings_window: function() { $("#populated_settings > div > span > input[type='checkbox']").each(function() { v1 = $(this).attr("id"); repod_jsuite_setCookie(v1,"",-1); });	location.reload(); },
 			popup: function(popup_data) {
-				$("#settings_popup_window > #pop_content_area > :input").each(function(a,b) {
+				$("#settings_popup_window > #pop_content_area > :input").each(function() {
 					repod_jsuite_setCookie($(this).attr("id"),"",-1);
 				});
 				$("div#settings_popup_container").remove();

@@ -7,5 +7,5 @@ Saguaro version 0.98.3b3 or newer is required to fully utilize these files.
 To update, [download the archive](https://github.com/RePod/saguaro-jquery/archive/master.zip) and overwrite the installation's **jquery** folder with the new one.
 Alternatively update specific files as desired.
 
-##Libaries Included
+##Libraries Included
 [jQuery Form Plugin](http://jquery.malsup.com/form/).

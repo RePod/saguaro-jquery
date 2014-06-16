@@ -1,12 +1,5 @@
-$(document).ready(function() {
-	/*
-	RePod @ 100tontofu.tk
-	When browsing the index and having reached the bottom, loads the next page.
-	Note: this requires the default cached page extension to be ".html" or must be modified below.
-	*/
-	repod.infinite_scroll.init();
-});
-
+//RePod - When browsing the index and having reached the bottom, loads the next page. Requires cached page extension to be ".html" or configured below.
+$(document).ready(function() { repod.infinite_scroll.init(); });
 try { repod; } catch(a) { repod = {}; }
 repod.infinite_scroll = {
 	init: function() {

@@ -1,9 +1,5 @@
-$(document).ready(function() {
-	//RePod @ http://100tontofu.tk
-	//Displays the original image when hovering over its thumbnail.
-	repod.image_hover.init();
-});
-
+//RePod - Displays the original image when hovering over its thumbnail.
+$(document).ready(function() { repod.image_hover.init(); });
 try { repod; } catch(a) { repod = {}; }
 repod.image_hover = {
 	init: function() {

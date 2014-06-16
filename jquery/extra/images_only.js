@@ -1,9 +1,5 @@
-$(document).ready(function() {
-	//RePod @ 100tontofu.tk
-	//Self-explanatory.
-	repod.hide_images.init();
-});
-
+//RePod - Hide non-images posts when browsing.
+$(document).ready(function() { repod.hide_images.init(); });
 try { repod; } catch(a) { repod = {}; }
 repod.hide_images = {
 	init: function() {

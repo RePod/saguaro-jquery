@@ -1,8 +1,5 @@
-$(document).ready(function() {
-	//RePod @ http://100tontofu.tk
-	//Shows thread statistics (number of replies, number of image replies out of all replies) above and below threads.
-	repod.thread_stats.init();
-});
+//RePod - Shows thread statistics (number of replies, number of image replies out of all replies) above and below threads.
+$(document).ready(function() { repod.thread_stats.init(); });
 try { repod; } catch(a) { repod = {}; }
 repod.thread_stats = {
 	init: function() {

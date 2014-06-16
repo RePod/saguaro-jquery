@@ -1,10 +1,5 @@
-$(document).ready(function() {
-	/* RePod @ 100tontofu.tk - The README/documentation for the suite settings is now in the suite readme. */
-	repod.suite_settings.init();
-});
-
+$(document).ready(function() { repod.suite_settings.init(); });
 repod_suite_settings_pusher = []; //Legacy support. New scripts should push their information to repod.suite_settings.info instead.
-
 try { repod; } catch(e) { repod = {}; }
 repod.suite_settings = {
 	init: function() {
@@ -95,8 +90,7 @@ repod.suite_settings = {
 						output += '<input id="'+popup_data['variable']['prefix']+a+'" type="text" placeholder="'+popup_data['variable']['data'][a]+'" value="'+d+'" style="width:'+w+'px;margin-bottom:2px;"></input>';
 					});
 				} //else { output = "This mutlitext is not formatted properly."; }
-			}
-			
+			}			
 			return output;				
 		},
 		popup_footer: function (type) {

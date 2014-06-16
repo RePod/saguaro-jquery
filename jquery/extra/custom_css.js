@@ -1,9 +1,5 @@
-$(document).ready(function() {
-	//RePod @ 100tontofu.tk
-	//Allow user to inject custom CSS rules. First script that should support customizable windows in the settings.
-	repod.custom_css.init();
-});
-
+//RePod - Allows user to inject custom CSS rules.
+$(document).ready(function() { repod.custom_css.init(); });
 try { repod; } catch(a) { repod = {}; }
 repod.custom_css = {
 	init: function() {

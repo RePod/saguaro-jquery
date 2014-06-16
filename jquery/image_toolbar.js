@@ -1,9 +1,5 @@
-$(document).ready(function() {
-	//RePod @ http://100tontofu.tk
-	//Appends a toolbar for image posts with links to resources.
-	repod.image_toolbar.init();
-});
-
+//RePod - Appends a toolbar for image posts with links to resources.
+$(document).ready(function() { repod.image_toolbar.init(); });
 try { repod; } catch(e) { repod = {}; }
 repod.image_toolbar = {
 	init: function() {

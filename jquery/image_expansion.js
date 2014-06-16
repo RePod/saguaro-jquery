@@ -1,9 +1,5 @@
-$(document).ready(function() {
-	//RePod @ http://100tontofu.tk
-	//Expands images with their source inside their parent element up to certain dimensions.
-	repod.image_expansion.init();
-});
-
+//RePod - Expands images with their source inside their parent element up to certain dimensions.
+$(document).ready(function() { repod.image_expansion.init(); });
 try { repod; } catch(a) { repod = {}; }
 repod.image_expansion = {
 	init: function() {

@@ -1,9 +1,5 @@
-$(document).ready(function() {
-	//RePod @ 100tontofu.tk
-	//Allows a user to set a custom list of boards to be displayed at the top/bottom board listings.
-	repod.custom_boardlist.init();
-});
-
+//RePod - Allows user to set a custom list of boards to be displayed at the top/bottom board listings.
+$(document).ready(function() { repod.custom_boardlist.init(); });
 try { repod; } catch(a) { repod = {}; }
 repod.custom_boardlist = {
 	init: function() {

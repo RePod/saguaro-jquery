@@ -1,12 +1,5 @@
-$(document).ready(function() {
-	//RePod @ http://100tontofu.tk
-	//Replaces behaviour of quote links to add them to the current post inline.
-	//Also adds the behavior to hover over quotes to preview them.
-	//Due to the nature of the core software cross-thread cannot be achieved.
-	//typeof repod_thread_updater_calls == "object" && repod_thread_updater_calls.push(repod_utility_quotes_bindings);
-	repod.utility_quotes.init();
-});
-
+//RePod - Various things involving quotes.
+$(document).ready(function() { repod.utility_quotes.init(); });
 try { repod; } catch(e) { repod = {}; }
 repod.utility_quotes = {
 	init: function() {

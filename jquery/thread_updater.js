@@ -1,16 +1,8 @@
-//RePod @ http://100tontofu.tk
-//Attempts to update threads without reloading the page via jQuery and AJAX.
-//Interconnects with other repod_jquery_suite features which are called upon adding new content to the DOM.
-//Want a custom function called when new posts are added? Push it to repod_thread_updater_calls.
-
-//Uses the Page Visibility API, sort of: http://www.w3.org/TR/page-visibility/
-
-$(document).ready(function() {
-	repod.thread_updater.init();
-});
-
+//RePod - Attempts to update threads without reloading the page via jQuery and AJAX.
+//Interconnects with other features which are called upon adding new content to the DOM, or not.
+//Want a custom function called when new posts are added? Push it to repod.thread_updater.callme.
+$(document).ready(function() { repod.thread_updater.init(); });
 repod_suite_settings_pusher = []; //Legacy support. New scripts should push their information to repod.thread_updater.callme instead.
-
 try { repod; } catch(a) { repod = {}; }
 repod.thread_updater = {
 	init:function() {

@@ -1,9 +1,5 @@
-$(document).ready(function() {
-	//RePod @ http://100tontofu.tk
-	//Forces long posts to wrap at 75% of total page width instead of 100%.
-	repod.post_wrap.init();
-});
-
+//RePod - Forces long posts to wrap at 75% of total page width instead of 100%.
+$(document).ready(function() { repod.post_wrap.init(); });
 try { repod; } catch(e) { repod = {}; }
 repod.post_wrap = { 
 	init: function() {

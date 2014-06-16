@@ -16,7 +16,7 @@ repod.image_expansion = {
 	check_image: function(event,e) {
 		event.preventDefault();
 		$(e).data("o-s") ? this.shrink_image(e) : this.expand_image(e);
-		typeof repod.image_hover == "object" && $("#"+repod.image_hover.config.hover_id).remove();
+		$("#img_hover_element").remove();
 	},
 	expand_image: function(e) {
 		$(e).data({"o-h":$(e).css("height"),"o-w":$(e).css("width"),"o-s":$(e).attr("src")}).css({"max-width":(Math.round($("body").width() - ($(e).parent().parent().offset().left * 2))),"width":"auto","height":"auto"});

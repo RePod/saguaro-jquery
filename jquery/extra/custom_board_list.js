@@ -12,8 +12,8 @@ repod.custom_boardlist = {
 	},
 	update: function() {
 		if (this.config.enabled && repod_jsuite_getCookie("custom_boardlist_defined") !== null) {
-			$("#custom_boardlist_all").on("click", function() { $(".boardlist").html(repod.custom_boardlist.config.original); });
 			$(".boardlist").html(this.format());
+			$(".custom_boardlist_all").on("click", function() { console.log('hi'); $(".boardlist").html(repod.custom_boardlist.config.original); });
 		}
 	},
 	format: function(a) {
@@ -26,7 +26,7 @@ repod.custom_boardlist = {
 				c_bl_a[i] = "<a href='../"+v+"'>"+v+"</a>";
 			}
 		});
-		c_bl_a = "["+c_bl_a.join(" / ")+"] [<span id='custom_boardlist_all' style='cursor:pointer' title='Show all'>...</span>]";
+		c_bl_a = "["+c_bl_a.join(" / ")+"] [<span class='custom_boardlist_all' style='cursor:pointer' title='Show original'>...</span>]";
 		return c_bl_a;
 	}
 }

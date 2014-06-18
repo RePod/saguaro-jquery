@@ -17,6 +17,9 @@ repod.utility_quotes = {
 			selector: "a.inline_quote",
 			div_class: "hover_post"
 		}
+		this.config = {
+			in_thread: ($("span.op_post > a[title='Quote']").length == 1) ? true : false
+		}
 		if (repod.suite_settings) {
 			repod.suite_settings.info.push({menu:{category:'Quotes & Replying',read:this.backlinks.config.enabled,variable:'repod_utility_quotes_hover',label:'Quote preview',hover:'Enable inline quote previews'}});
 			repod.suite_settings.info.push({menu:{category:'Quotes & Replying',read:this.inline_expansion.config.enabled,variable:'repod_utility_quotes_backlinks',label:'Backlinks',hover:'Show who has replied to a post'}});
@@ -26,7 +29,7 @@ repod.utility_quotes = {
 	},
 	update: function() {
 		$("a:contains('>>')").attr("class","inline_quote");
-		repod.utility_quotes.backlinks.update(); repod.utility_quotes.inline_expansion.update(); repod.utility_quotes.hover.update();
+		/*this.config.in_thread && */repod.utility_quotes.backlinks.update(); repod.utility_quotes.inline_expansion.update(); repod.utility_quotes.hover.update();
 	},
 	backlinks: {
 		config: {},
@@ -55,7 +58,7 @@ repod.utility_quotes = {
 		},
 		check: function(event,e) {
 			event.preventDefault();
-			if (event.shiftKey) { window.location = $(e).attr("href"); }
+			if (event.shiftKey || !repod.utility_quotes.config.in_thread) { window.location = $(e).attr("href"); }
 			else {
 				var temp = ($(e).is('.backlink')) ? $(e).attr("href").split("#") : $(e).attr("href").split("?")[1].split("=")[1].split("#");
 				var target_thread = temp[0];

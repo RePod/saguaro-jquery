@@ -8,4 +8,4 @@ To update, [download the archive](https://github.com/RePod/saguaro-jquery/archiv
 Alternatively update specific files as desired.
 
 ##Libraries Included
-[jQuery Form Plugin](http://jquery.malsup.com/form/).
+[jQuery](http://jquery.com/), [jQuery UI](http://jqueryui.com/), [jQuery Form Plugin](http://jquery.malsup.com/form/).

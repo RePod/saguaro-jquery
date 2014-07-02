@@ -88,7 +88,7 @@ repod.suite_settings = {
 						d = (repod_jsuite_getCookie(popup_data['variable']['prefix']+a)) ? repod_jsuite_getCookie(popup_data['variable']['prefix']+a) : "";
 						output += '<input id="'+popup_data['variable']['prefix']+a+'" type="text" placeholder="'+popup_data['variable']['data'][a]+'" value="'+d+'" style="width:'+w+'px;margin-bottom:2px;"></input>';
 					});
-				} //else { output = "This mutlitext is not formatted properly."; }
+				} //else { output = "This multitext is not formatted properly."; }
 			}			
 			return output;				
 		},

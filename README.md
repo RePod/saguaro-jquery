@@ -11,6 +11,9 @@ Alternatively update specific files as desired.
 
 Most installation problems can be resolved by using **[chmod](https://www.google.com/?#q=chmod)** on newly added files and setting them to 777. If the files are not showing up, the board's cache pages must be updated through either posting or the **Manage** section.
 
+##Receiving Help
+There's a wiki provided on the project's GitHub page for more advanced concepts, [and here it is!](https://github.com/RePod/saguaro-jquery/wiki)
+
 ##Libraries Included
 [jQuery](http://jquery.com/), [jQuery UI](http://jqueryui.com/), [jQuery Form Plugin](http://jquery.malsup.com/form/).
 

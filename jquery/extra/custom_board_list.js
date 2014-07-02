@@ -21,7 +21,7 @@ repod.custom_boardlist = {
 		$.each(c_bl_a,function(i,v) {
 			var r = /([a-z0-9]+:\/\/\S+\.[a-z]{2,}\/?\S*?)\|(.+)/i;
 			if (r.test(v)) {
-				m = r.exec(v); c_bl_a[i] = "<a href='"+m[1]+"'>"+m[2]+"</a>";
+				r = r.exec(v); c_bl_a[i] = "<a href='"+r[1]+"'>"+r[2]+"</a>";
 			} else {
 				c_bl_a[i] = "<a href='../"+v+"'>"+v+"</a>";
 			}

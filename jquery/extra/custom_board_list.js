@@ -11,15 +11,15 @@ repod.custom_boardlist = {
 		this.update();
 	},
 	update: function() {
-		if (this.config.enabled && repod_jsuite_getCookie("custom_boardlist_defined") !== null) {
+		if (this.config.enabled && !!repod_jsuite_getCookie("custom_boardlist_defined")) {
 			$(".boardlist").html(this.format());
-			$(".custom_boardlist_all").on("click", function() { console.log('hi'); $(".boardlist").html(repod.custom_boardlist.config.original); });
+			$(".custom_boardlist_all").on("click", function() { $(".boardlist").html(repod.custom_boardlist.config.original); });
 		}
 	},
 	format: function(a) {
 		var c_bl_a = repod_jsuite_getCookie("custom_boardlist_defined").split(" ");
 		$.each(c_bl_a,function(i,v) {
-			var r = /([a-z0-9]+:\/\/\S+\.[a-z]{2,6}\/?\S*?)\|(.+)/i;
+			var r = /([a-z0-9]+:\/\/\S+\.[a-z]{2,}\/?\S*?)\|(.+)/i;
 			if (r.test(v)) {
 				m = r.exec(v); c_bl_a[i] = "<a href='"+m[1]+"'>"+m[2]+"</a>";
 			} else {

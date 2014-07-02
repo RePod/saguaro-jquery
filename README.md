@@ -18,4 +18,6 @@ Most installation problems can be resolved by using **[chmod](https://www.google
 Unless otherwise stated within a file, its license is MIT which should be included along with the repository in the LICENSE file. If you feel a license has been violated feel free to contact me.
 
 ##Contact
-In regards to this project the best way for contact is using GitHub's readily available commenting tools on files, merges, pull requests, etc.
+The best way for contact is using GitHub's readily available commenting tools on files, merges, pull requests, etc.
+
+Users are encouraged to "minify" code if their situation requires it, however this repository will not provide nor support such code.	

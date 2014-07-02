@@ -22,17 +22,16 @@ repod.suite_settings = {
 			repod.suite_settings.populate.settings_window();
 		},
 		popup: function(popup_data) {
-			console.log(popup_data["variable"]);
 			if (popup_data["type"] !== "function") {
 				$("body").append("<div id='settings_popup_container' style='position:fixed;top:0px;left:0px;width:100%;height:100%;display:table;background-color:rgba(0,0,0,0.25);'><div style='display:table-cell;vertical-align:middle;height:inherit'><div id='settings_popup_window' class='reply' style='max-height:480px;width:"+repod.suite_settings.config.width+"px;overflow:auto;margin-left:auto;margin-right:auto;border-style:solid;border-width:1px;padding:5px 0px 5px 0px;text-align:center;'></div></div></div>");
 				$("#settings_popup_window").append("<strong>"+popup_data["title"]+"</strong> <img id='close' style='float:right;cursor:pointer;position:relative;top:5px;right:5px;' src='jquery/close.jpg' title='Close' alt='[X]'></img><hr/><div id='pop_content_area' style='text-align:left;padding:0px 3px 0px 3px;'></div><hr />");
 				$("#settings_popup_container").on("click", function() { $(this).remove(); });
 				$("#settings_popup_window").on("click", function(event) { event.stopPropagation(); });
-				$("#settings_popup_window > img#close").on("click", function() { $("div#settings_popup_window").remove(); });
 				$("#settings_popup_window").append(repod.suite_settings.populate.popup_footer(popup_data["type"]));
 				$("#settings_popup_window > input[value='Save']").data(popup_data).on("click",function() { repod.suite_settings.data_manip.save.popup($(this).data()); });;
 				$("#settings_popup_window > input[value='Reset']").data(popup_data).on("click",function() { repod.suite_settings.data_manip.reset.popup($(this).data()); });;
 				$("#settings_popup_window > #pop_content_area").html(repod.suite_settings.populate.popup(popup_data));
+				$("#settings_popup_window > img#close, #settings_popup_window > input[value='Close']").on("click", function() { $("div#settings_popup_window").remove(); });
 			} else {
 				repod_jsuite_executeFunctionByName(popup_data["variable"],window);
 			}
@@ -48,7 +47,7 @@ repod.suite_settings = {
 			$("div.grouptoggle > a").on("click", function() { $("#"+$(this).parent().prev("strong").text().replace(/[\A\W]/g,"-")+" > span > input[type='checkbox']").prop("checked",($(this).text() == "On")?"checked":""); });
 			$("#settings_window > input[value='Save']").on("click", function() { repod.suite_settings.data_manip.save.settings_window(); });
 			$("#settings_window > input[value='Reset']").on("click", function() { repod.suite_settings.data_manip.reset.settings_window(); });
-			$(".settings_popup").on("click", function() { console.log($(this)); repod.suite_settings.spawn.popup($(this).data()); });
+			$(".settings_popup").on("click", function() { repod.suite_settings.spawn.popup($(this).data()); });
 		},
 		iterate: function(a) {
 			$.each(a,function(a,b) {
@@ -94,6 +93,7 @@ repod.suite_settings = {
 			return output;				
 		},
 		popup_footer: function (type) {
+			var o;
 			if (type == "info") { o = "<input type='submit' value='Close'>"; }
 			else {
 				o = "<input type='submit' value='Save'> <input type='submit' value='Reset'></input>";				

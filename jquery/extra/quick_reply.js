@@ -19,7 +19,6 @@ repod.quick_reply = {
 	},
 	update: function() {
 		if (this.config.op) {
-			$("a.qu").css("cursor","pointer");
 			$(document).on("click", "a.qu[title=Quote]", function(e) {
 				e.preventDefault();
 				if ($("div#repod_jquery_quick_reply_container").length > 0) {

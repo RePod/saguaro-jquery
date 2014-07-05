@@ -1,7 +1,7 @@
 //RePod - Lets you reply, quickly. Uses the based jQuery Form Plugin.
 $(document).ready(function() { repod.quick_reply.init(); });
 try { repod; } catch(a) { repod = {}; }
-repod.quick_reply = {
+repod.quick_reply = a{
 	init: function() {
 		this.config = {
 			enabled: repod.suite_settings && !!repod_jsuite_getCookie("repod_quick_reply_enabled") ? repod_jsuite_getCookie("repod_quick_reply_enabled") === "true" : true,

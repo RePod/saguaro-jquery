@@ -4,7 +4,8 @@ The purpose of this project is to create a set of files aimed at dynamically exp
 Feel free to submit pull requests of new features, bug fixes, or code improvements. We could all use some.
 
 ##Getting Started
-Saguaro version **0.98.3b3** or newer is required to fully utilize these files.
+Saguaro version **0.98.3b4** or newer is required to fully utilize these files.
+These files are designed with jQuery **v1.10.2** in mind, this might change later.
 
 To update, [download the archive](https://github.com/RePod/saguaro-jquery/archive/master.zip) and overwrite the installation's **jquery** folder with the new one.
 Alternatively update specific files as desired.

@@ -2,17 +2,17 @@ $(document).ready(function() { repod.styleswitch.init(); });
 try { repod; } catch(e) { repod = {}; }
 
 repod.styleswitch = {
-	init: function() {
-		this.stylesheet_cache = $("link[rel$=stylesheet]");
+    init: function() {
+        this.stylesheet_cache = $("link[rel$=stylesheet]");
 
         //$("#switchform").remove(); //Literally removing the competition
 
         this.ready();
-	},
-	ready: function() {
-		this.injectSelector();
+    },
+    ready: function() {
+        this.injectSelector();
         this.enableSheet(this.readSaved());
-	},
+    },
     disableAllSheets: function() {
         $.each(this.stylesheet_cache, function(i,obj) {
             $(obj).prop("disabled", true);
@@ -87,11 +87,11 @@ repod.styleswitch = {
             value = this.getCurrentSheet(),
             exdays = 3,
             exdate = new Date();
-        
+
         exdate.setDate(exdate.getDate() + exdays);
-        
+
         var c_value = escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
-        
+
         document.cookie = c_name + "=" + c_value;
     },
     readSaved: function() {

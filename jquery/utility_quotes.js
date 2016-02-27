@@ -1,4 +1,32 @@
-//RePod - Various things involving quotes.
+/*
+
+The MIT License (MIT)
+
+Copyright (c) 2013-2014 RePod
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+ADDITIONALLY, THIS FILE WAS ORIGINALLY CREATED FOR THE SAGUARO IMAGEBOARD SOFTWARE.
+THE ORIGINAL SOFTWARE MAY BE FOUND AT: https://github.com/spootTheLousy/saguaro
+
+Various things involving quotes.
+*/
 $(document).ready(function() { repod.utility_quotes.init(); });
 try { repod; } catch(e) { repod = {}; }
 repod.utility_quotes = {
@@ -18,7 +46,7 @@ repod.utility_quotes = {
 			div_class: "hover_post"
 		}
 		this.config = {
-			in_thread: ($("span.op_post").length == 1) ? true : false
+			in_thread: ($("div.post op").length == 1) ? true : false
 		}
 		if (repod.suite_settings) {
 			repod.suite_settings.info.push({menu:{category:'Quotes & Replying',read:this.backlinks.config.enabled,variable:'repod_utility_quotes_hover',label:'Quote preview',hover:'Enable inline quote previews'}});
@@ -37,13 +65,13 @@ repod.utility_quotes = {
 			$("a:contains('>>'):not(.inline_quote)").attr("class","inline_quote");
 			if (repod.utility_quotes.backlinks.config.enabled) {
 				var prefix = repod.utility_quotes.backlinks.config.prefix;
-				$("a.qu:odd").each(function () {
+				$("a.quotejs:odd").each(function () {
 					var this_post = $(this).text();
 					var num = $("a.inline_quote:not('.backlink')").filter(function(index) { return $(this).text() === ">>"+this_post; }).length; //http://stackoverflow.com/a/6673805
 					if (num > 0) {
 						if ($("#"+prefix+this_post).length == 0) { $(this).after(" <div style='display:inline; font-size: 0.8em !important;' class='backlinks' id='bl_"+this_post+"'>Replies: </div>"); }
 						$("a.inline_quote:not('.backlink')").filter(function(index) { return $(this).text() === ">>"+this_post; }).each(function () {
-							var target_post = $(this).parent().parent().parent().children("a.qu:odd").text();
+							var target_post = $(this).parent().parent().parent().children("a.quotejs:odd").text();
 							if (target_post.length !== 0 && $("a[href='#"+target_post+"']").length == 0) { $("#bl_"+this_post).append("<a href='#"+target_post+"' class='inline_quote backlink'>&gt;&gt;"+target_post+"</a> "); }
 						});
 					}

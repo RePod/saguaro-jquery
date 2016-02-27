@@ -1,3 +1,31 @@
+/*
+
+The MIT License (MIT)
+
+Copyright (c) 2013-2014 RePod
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+ADDITIONALLY, THIS FILE WAS ORIGINALLY CREATED FOR THE SAGUARO IMAGEBOARD SOFTWARE.
+THE ORIGINAL SOFTWARE MAY BE FOUND AT: https://github.com/spootTheLousy/saguaro
+
+*/
 $(document).ready(function() { repod.suite_settings.init(); });
 repod_suite_settings_pusher = []; //Legacy support. New scripts should push their information to repod.suite_settings.info instead.
 try { repod; } catch(e) { repod = {}; }
@@ -9,13 +37,13 @@ repod.suite_settings = {
 			//At the moment multi_suffix isn't applied. The suffix applied is hard coded to "amount".
 			pre_categories: ["Images","Quotes & Replying","Monitoring","Navigation","Miscellaneous"] //Categories that should be spawned in this order before everything else.
 		}
-		$("span.adminbar").prepend("[<a href='#' id='repod_jquery_suite_settings_open'>Settings</a>]");
+		$("div.linkBar").prepend("[<a href='#' id='repod_jquery_suite_settings_open'>Settings</a>]");
 		$("a#repod_jquery_suite_settings_open").click(function() { repod.suite_settings.spawn.settings_window(); });
 	},
 	spawn: {
 		settings_window: function() {
 			$("body").append("<div id='settings_container' style='position:fixed;top:0px;left:0px;width:100%;height:100%;display:table;background-color:rgba(0,0,0,0.25);'><div style='display:table-cell;vertical-align:middle;height:inherit'><div id='settings_window' class='reply' style='max-height:480px;width:"+repod.suite_settings.config.width+"px;overflow:auto;margin-left:auto;margin-right:auto;border-style:solid;border-width:1px;padding:5px 0px 5px 0px;text-align:center;'></div></div></div>");
-			$("#settings_window").append("<strong>Settings</strong> <img id='close' style='float:right;cursor:pointer;position:relative;top:5px;right:5px;' src='plugins/jquery/close.jpg' title='Close' alt='[X]'></img><hr/><div id='populated_settings' style='text-align:left;padding:0px 3px 0px 3px;'></div><hr /><input type='submit' value='Save'> <input type='submit' value='Reset'></input><br /><span style='font-size:10px'>Requires cookies. See source for integration instructions.</span>");
+			$("#settings_window").append("<strong>Settings</strong> <img id='close' style='float:right;cursor:pointer;position:relative;top:5px;right:5px;' src='plugins/jquery/close.jpg' title='Close' alt='[X]'></img><hr/><div id='populated_settings' style='text-align:left;padding:0px 3px 0px 3px;'></div><hr /><input type='submit' value='Save'> <input type='submit' value='Reset'></input><br /><span style='font-size:10px'>Utilizes Local Storage. See source for integration instructions.</span>");
 			$("#settings_container").on("click", function() { $(this).remove(); });
 			$("#settings_window").on("click", function(event) {	event.stopPropagation(); });
 			$("img#close").on("click", function() { $("div#settings_container").remove(); });
@@ -136,31 +164,15 @@ repod.suite_settings = {
 	}
 };
 
-//http://www.w3schools.com/js/js_cookies.asp
-//Do not remove, but feel free to optimize.
 function repod_jsuite_setCookie(c_name,value,exdays) {
-	var exdate=new Date();
-	exdate.setDate(exdate.getDate() + exdays);
-	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
-	document.cookie=c_name + "=" + c_value;
+    if (exdays == -1) {
+        localStorage.removeItem(c_name);
+    } else {
+        localStorage[c_name] = value; 
+    }
 }
 function repod_jsuite_getCookie(c_name) {
-	var c_value = document.cookie;
-	var c_start = c_value.indexOf(" " + c_name + "=");
-	if (c_start == -1) {
-		c_start = c_value.indexOf(c_name + "=");
-	}
-	if (c_start == -1) {
-		c_value = null;
-	} else {
-		c_start = c_value.indexOf("=", c_start) + 1;
-		var c_end = c_value.indexOf(";", c_start);
-		if (c_end == -1) {
-			c_end = c_value.length;
-		}
-		c_value = unescape(c_value.substring(c_start,c_end));
-	}
-	return c_value;
+    return localStorage[c_name];
 }
 //http://stackoverflow.com/a/359910
 function repod_jsuite_executeFunctionByName(functionName, context /*, args */) {
